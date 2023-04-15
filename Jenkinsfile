@@ -13,8 +13,7 @@ pipeline {
             }
             steps {
                 sh 'mvn --version'
-                sh 'pwd'
-                sh 'ls -l'
+                sh 'mvn clean package'
             }
         }
     }
