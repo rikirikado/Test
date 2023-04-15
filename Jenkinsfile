@@ -17,8 +17,11 @@ pipeline {
             }
         }
         stage('Docker Build') {
-    	    agent any
+    	    agent any {
+                reuseNode true
+            }
             steps {
+                sh 'ls -l target'
       	        sh 'docker build -t test-app:latest .'
             }
         }
