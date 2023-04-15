@@ -13,6 +13,8 @@ pipeline {
             }
             steps {
                 sh 'mvn --version'
+                sh 'pwd'
+                sh 'ls -l'
             }
         }
     }
