@@ -16,5 +16,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Docker Build') {
+    	    agent any
+            steps {
+      	        sh 'docker build -t test-app:latest .'
+            }
+        }
     }
 }
