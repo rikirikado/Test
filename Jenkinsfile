@@ -21,12 +21,10 @@ pipeline {
             agent { 
                 node { 
                     label 'master' 
-                    reuseNode true
                 } 
             }
             steps {
-                sh 'ls -l target'
-      	        sh 'docker build -t test-app:latest .'
+                sh 'pwd'
             }
         }
     }
