@@ -18,7 +18,12 @@ pipeline {
         }
         stage('Docker Build') {
 
-            agent { node { label 'master' } }
+            agent { 
+                node { 
+                    label 'master' 
+                    reuseNode true
+                } 
+            }
             steps {
                 sh 'ls -l target'
       	        sh 'docker build -t test-app:latest .'
