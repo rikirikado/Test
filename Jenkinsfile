@@ -17,7 +17,8 @@ pipeline {
             }
         }
         stage('Docker Build') {
-    	    agent any 
+
+            agent { node { label 'master' } }
             steps {
                 sh 'ls -l target'
       	        sh 'docker build -t test-app:latest .'
