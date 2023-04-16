@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Docker Build') {
 
-            agent { node { label 'built-in node' } }
+            agent { node { label 'master' } }
             steps {
                 sh 'ls -l target'
       	        sh 'docker build -t test-app:latest .'
