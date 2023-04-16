@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'master'
+    }
     stages {
         stage('Build') {
             agent {
@@ -17,12 +19,6 @@ pipeline {
             }
         }
         stage('Docker Build') {
-
-            agent { 
-                node { 
-                    label 'master' 
-                } 
-            }
             steps {
                 sh 'pwd'
             }
