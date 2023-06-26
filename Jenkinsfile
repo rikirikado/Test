@@ -17,18 +17,15 @@ pipeline {
             steps {
                 sh 'mvn --version'
                 sh 'mvn clean package'
-            }
-        }
-
-        stage('Sonar Scan') {
-            steps {
                 withSonarQubeEnv(installationName: 'sq1') {
                     sh 'mvn clean sonar:sonar'
                 }
             }
-        }    
+        }
 
         
+
+
         stage('Docker Build') {
             steps {
                 sh 'docker build -t demp-test-app:latest .'
